@@ -79,13 +79,7 @@
       <hr>
       <br /> 
       <h3>Artistic Documentation</h3>    
-      <p>In this project, we explored generative art by flashing generative text onto ESP32 devices. 
-      </p>
-      <h4>Exploring the ESP32</h4>
-      <p>We began by exploring our ESP32 TTGO-- microcontrollers with a color display.</p>
-      <iframe width="420" height="315"
-        src="https://www.youtube.com/embed/S5Q50tgJusk">
-      </iframe>
+
       <h4>Artistic Vision</h4>
       <p>We then moved on to the artistic component of the installation: I chose to have white text on a black
         background, displaying a selection of verbs that incite motion. Living is moving, and living is feeling. 
@@ -118,7 +112,7 @@
         from the day of the installation, as well as the text from my device. 
       </p>
       <iframe width="420" height="315"
-      src="https://www.youtube.com/embed/gd8vlK4oSjU">
+      src="https://youtube.com/embed/jtwXn9haXs4">
       </iframe>     
       <p>
         Challenges that I experienced in this project centered on the powering of the device, yet it also was 
@@ -135,44 +129,63 @@
 
       <h3>Technical Documentaion</h3>
 
-      <p>Link to github repository: <a href="https://github.com/susannaha8/Creative-Embedded-Systems">https://github.com/susannaha8/Creative-Embedded-Systems</a></p>
-      <h4>Installing the Software </h4>
+      <p>Link to github repository: <a href="https://github.com/susannaha8/CS3930-Steal-the-Color"</a></p>
+      <h4>Setting up the Hardware </h4>
       
-      <p>For Mac users, install Arduino IDE version 1.8.19 (this is a Legacy version, not the most recent one). You also may need to install the driver listed on this forum 
-        (<a href="https://github.com/Xinyuan-LilyGO/LilyGo-T-Call-SIM800/issues/139#issuecomment-904390716">https://github.com/Xinyuan-LilyGO/LilyGo-T-Call-SIM800/issues/139#issuecomment-904390716</a>) if you are getting errors when trying to upload code to your device.  
-      </p>
+      <p>This project consists of a breadboard, 7 wires, and three main pieces of hardware: an ESP32, a joystick, 
+	and a button. Plug the pins of the hardware into the breadboard, and connected them further with wires: 
+	connect the joystick to the ESP32 with one wire to Ground, one to 3V, and the other three to pins 25, 26, 
+	and 27 for X, Y, and Z motion; connect the button with one wire to Ground, and the other to pin 13 for 
+	digital input. The ESP32 is powered via a USBC cable.
+</p>
+	<img src="/hardware.png" alt="hardware" style="height: 300px;"/>
+
       
-      <h4>Setting Up the Environment</h4>
+      <h4>Flashing Code to the ESP32</h4>
       
-      <p>Once in the Arduino software, add the ESP32 board by clicking on "Arduino", then "Preferences". You should see a section called "Additional Boards Manager URLs". Add the following 
-        URL: <a href="https://dl.espressif.com/dl/package_esp32_index.json">https://dl.espressif.com/dl/package_esp32_index.json</a>
-      </br>
-      Add the correct library by clicking on "Tools", then "Library Manager". Search for TFT_eSPI and install. You should now see all library folders in the /Arduino folder on your computer. To find where your /Adruino folder is, check "Preferences" for the sketchbook location. 
+      <p>
+	After setting up our hardware, flash the code found in `src/main.cpp` to your ESP32. This 
+	allows you to recieve serial input from the joystick and the button. In the code, change the 
+	pin numbers if you used different GPIO pins when setting up the hardware. You can either write 
+	this code in the Arduino application or through the VSCode IDE PlatformIO. Select the port, and 
+	set the baudrate to match whatever you value you put in your `src/main.cpp` code (ex. `Serial.begin(115200)`.) 
+	To set the baudrate in PlatformIO, in `platformio.ini`, add the line `monitor_speed = 115200`, 
+	where 115200 is the baudrate. 
       </br>  
-      To finish setup, go to /Arduino/libraries/TFT_eSPI/User_Setup_Select.h. Comment out `#include <User_Setup.h>`, and uncomment `#include <User_Setups/Setup25_TTGO_T_Display.h>` since the TTGO display we are using does have preloaded support.  
+      To check that you are recieving serial input, open the Serial Moniter. As you move the joystick 
+      and press the button, you should watch the values change.
       </p>
       
-      <h4>Flashing Code to the Device</h4>
+      <h4>Reading Serial Input</h4>
       
-      <p>Explore the example code to familiarize yourself with the syntax. Be sure to select examples from the TFT_eSPI custom library with display size 160 x 128. Each example has code that runs in a loop, and you can time certain displays by setting `delay()`. In my code, I used `fillScreen()`, `setCursor()`, `setTextColor()`, and `println()`. For this assignment, to create generative art that has some degree of randomness, I used the `rand()` function. Once your code is ready, plug your ESP32 into your computer, go to "Tools" and select the correct "Port", and upload your code to your device!
-      </p>
+      <p>Once you confirm you are recieving serial input, you need to retrieve that input so you can parse it. 
+	This is done in `reader.py`. First install the python module serial with `pip install pyserial`. Use 
+	the line `ser = serial.Serial('/dev/cu.usbserial-546F1153241', 115200)` to tell serial the port and baudrate. 
+	`str(ser.readline().strip(), 'ascii')` returns a string of the serial input you are recieving 
+	from your hardware; this line is inside an infinite while loop, so you are continuously recieving 
+	lines of input. From there, you can use those values as variables that change color, or position, 
+	or any other features of your display.
+</p>
+	<img src="/serial_moniter.png" alt="serial moniter" style="height: 300px;"/>
+
       
-      <h4>Powering the Installation</h4>
+      <h4>Creating My Display with PyGame</h4>
       
-      <p>Originally, we planned to power our ESP32s with lipo batteries. We were provided JST connectors, and we were able to solder the connectors to the power and ground cables of the battery. 
+      <p>PyGame is a helpful Python library that allows for the display of graphics in games. 
+	PyGame's documentation has helpful examples, and provide good explanations for various 
+	functions you can use to create simple games:
+	</p>
+	<p>https://www.pygame.org/docs/<a href="https://www.pygame.org/docs/"</a></p>
+	
+	I built a game that has a moving circle (controlled by the joystick) that gets 
+	trapped in an invisble square, and to get out of the square, one must press the button 
+	on the joystick. This also has the effect of randomly changing the color of the circle. 
+	The button acts as a free pass, changing the color of the cricle continuously, and 
+	circumventing the square of doom. Here is a picture of 'Steal the Color' in action:
       </p>
 
-     <img src="/battery.png" alt="soldered battery" style="height: 300px;"/>
-      
-      <p>Due to some safety concerns with the batteries, we ended up scrapping the batteries in favor of a board that housed all the students' ESP32s and powered them with a single battery. During the installation, we adjusted the placement of the wires to ensure the base of the structure itself wasn't conducting the current. 
-      </p>
+      <img src="/game_play.png" alt="pygame display with a single circle" style="height: 300px;"/>
 
-      <img src="/setup.png" alt="in class setup" style="height: 300px;"/>
-      
-      <p>Here was the final result!</p>
-      
-      <img src="/installation.jpg" alt="esp32s plugged in and turned on to the board" style="height: 300px;"/>
-      
       
       
       
