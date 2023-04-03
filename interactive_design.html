@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Interactive Design</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    <!--  <a class="navbar-brand" href="#">Logo</a> -->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="active"><a href="projects.html">Projects</a></li>
+      </ul>
+      <!-- <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul> -->
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <!-- <div class="col-sm-2 sidenav">
+        <p>Contact Me<p>
+        <p>email: sma2243@barnard.edu<p>
+    </div>-->
+    <div class="col-sm-8 text-left"> 
+      <br /> 
+      <h1>Interactive Design</h1>
+      <br /> 
+      <hr>
+      <br /> 
+      <h3>Artistic Documentation</h3>    
+      <p>In this project, we explored generative art by flashing generative text onto ESP32 devices. 
+      </p>
+      <h4>Exploring the ESP32</h4>
+      <p>We began by exploring our ESP32 TTGO-- microcontrollers with a color display.</p>
+      <iframe width="420" height="315"
+        src="https://www.youtube.com/embed/S5Q50tgJusk">
+      </iframe>
+      <h4>Artistic Vision</h4>
+      <p>We then moved on to the artistic component of the installation: I chose to have white text on a black
+        background, displaying a selection of verbs that incite motion. Living is moving, and living is feeling. 
+        It is easy to sleep the days away, so I thought I would use this project to revitilize myself. I chose a delay of 
+        500 ms between each new word, and began with the word "go." The constant changing of the words, and the 
+        word "go" separated from all the rest pushes the viewer to listen, to go. Life is improvisation, and 
+        improvisation is randomness. Yet there is a power in simplicity. I wanted my display to be undistracting, 
+        yet clear. This is why I set each word in the exact same location, except for "go". This is why each verb
+        is only one syllable. The rigidity in only 10 words makes space for the viewer's imagination. 
+      </p>
+      <img src="/esp32.PNG" alt="esp32 displaying the word 'dance'" style="height: 300px;"/>
+    <p>
+        I originally only chose four words: "run", "dance", "fly", and "jump". There were many other 
+        contendors ("play", "move", "make", "grow"), but I realized that just as it is important to physically act,
+        it is important to emotionally act. Taking internal, mental action is also the opposite of sleep, in a way. 
+        I added "feel", "cry", "cheer", "draw", and "need". I wasn't sure if these were perfect, but that was okay. 
+        I want this code to be a work in progress.
+    </p>
+    <p>
+        Something unexpected that I thought I would take out but turned out to enjoy was when my code 
+        randomly chose the same word twice. I had a black screen come for a moment between each word, so it
+        really does look like the word is repeated. This felt powerful, and I like how the art itself 
+        took my intention and message, and gave me back something unexpected and inventive in its 
+        generative component.
+      </p>
+      <h4>The Installation</h4>
+      <p>
+        It was exciting to see my work next to everyone elses. Other people did more with color, and 
+        I enjoyed the contrast between their complexity and my simplicity. Watch this video to see clips
+        from the day of the installation, as well as the text from my device. 
+      </p>
+      <iframe width="420" height="315"
+      src="https://www.youtube.com/embed/gd8vlK4oSjU">
+      </iframe>     
+      <p>
+        Challenges that I experienced in this project centered on the powering of the device, yet it also was 
+        one of the most fulfilling aspects of the journey. We were given lipo batteries, and after plugging mine 
+        into my board, the board heated up. I got a new board, and went to the Design Center to solder my JST 
+        connector. Luckily for me, I experienced no issues. I was able to cut, strip, solder, and use a hairdryer
+        on the heat shrink until I had a fully soldered battery. As someone often afraid of hardware, it 
+        felt empowering and in line with the artistic aspect of this installation to feel a sort of ownership 
+        over the physical technology we used. 
+      </p>
+      <p>
+        To try this yourself, follow the below technical description, or follow this link to my code repository. 
+      </p>
+
+      <h3>Technical Documentaion</h3>
+
+      <p>Link to github repository: <a href="https://github.com/susannaha8/Creative-Embedded-Systems">https://github.com/susannaha8/Creative-Embedded-Systems</a></p>
+      <h4>Installing the Software </h4>
+      
+      <p>For Mac users, install Arduino IDE version 1.8.19 (this is a Legacy version, not the most recent one). You also may need to install the driver listed on this forum 
+        (<a href="https://github.com/Xinyuan-LilyGO/LilyGo-T-Call-SIM800/issues/139#issuecomment-904390716">https://github.com/Xinyuan-LilyGO/LilyGo-T-Call-SIM800/issues/139#issuecomment-904390716</a>) if you are getting errors when trying to upload code to your device.  
+      </p>
+      
+      <h4>Setting Up the Environment</h4>
+      
+      <p>Once in the Arduino software, add the ESP32 board by clicking on "Arduino", then "Preferences". You should see a section called "Additional Boards Manager URLs". Add the following 
+        URL: <a href="https://dl.espressif.com/dl/package_esp32_index.json">https://dl.espressif.com/dl/package_esp32_index.json</a>
+      </br>
+      Add the correct library by clicking on "Tools", then "Library Manager". Search for TFT_eSPI and install. You should now see all library folders in the /Arduino folder on your computer. To find where your /Adruino folder is, check "Preferences" for the sketchbook location. 
+      </br>  
+      To finish setup, go to /Arduino/libraries/TFT_eSPI/User_Setup_Select.h. Comment out `#include <User_Setup.h>`, and uncomment `#include <User_Setups/Setup25_TTGO_T_Display.h>` since the TTGO display we are using does have preloaded support.  
+      </p>
+      
+      <h4>Flashing Code to the Device</h4>
+      
+      <p>Explore the example code to familiarize yourself with the syntax. Be sure to select examples from the TFT_eSPI custom library with display size 160 x 128. Each example has code that runs in a loop, and you can time certain displays by setting `delay()`. In my code, I used `fillScreen()`, `setCursor()`, `setTextColor()`, and `println()`. For this assignment, to create generative art that has some degree of randomness, I used the `rand()` function. Once your code is ready, plug your ESP32 into your computer, go to "Tools" and select the correct "Port", and upload your code to your device!
+      </p>
+      
+      <h4>Powering the Installation</h4>
+      
+      <p>Originally, we planned to power our ESP32s with lipo batteries. We were provided JST connectors, and we were able to solder the connectors to the power and ground cables of the battery. 
+      </p>
+
+     <img src="/battery.png" alt="soldered battery" style="height: 300px;"/>
+      
+      <p>Due to some safety concerns with the batteries, we ended up scrapping the batteries in favor of a board that housed all the students' ESP32s and powered them with a single battery. During the installation, we adjusted the placement of the wires to ensure the base of the structure itself wasn't conducting the current. 
+      </p>
+
+      <img src="/setup.png" alt="in class setup" style="height: 300px;"/>
+      
+      <p>Here was the final result!</p>
+      
+      <img src="/installation.jpg" alt="esp32s plugged in and turned on to the board" style="height: 300px;"/>
+      
+      
+      
+      
+    </div>
+  </div>
+</div>
+
+<!-- <footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>  -->
+
+</body>
+</html>
+
