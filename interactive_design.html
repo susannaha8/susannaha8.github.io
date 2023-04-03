@@ -79,30 +79,44 @@
       <hr>
       <br /> 
       <h3>Artistic Documentation</h3>    
-
+	<p>In this module, we made interactive designs with our ESP32s, along with a joystick
+		and a button.
+	</p>
       <h4>The Game</h4>
-      <p>text
+      <p>I made a game called "Steal the Color". Hidden in the display is a rectangle. Inside
+	this rectangle, you can change color. Your goal is to navigate around the display
+	using the joystick, find the invisble rectangle, and click the joystick to change color!
+	For added fun, hold the button to cycle through all the colors (and evade the rectangle altogether.) 
       </p>
       <img src="/device.png" alt="image of device with joystick and button" style="height: 300px;"/>
-    <p>
-        text
-    </p>
-    <p>
-        unexpected
-      </p>
       <h4>The Enclosure</h4>
       <p>
-        text
+       	The breadboard is encased in cardboard, and decorated with black construction paper. The shape
+	of the joystick and button was awkward, so I cut holes in the cardboard and cut a piece of a pen 
+	to press the button. I added three spots of color to mimic the aesthetic of my display. One feature
+	of the enclosure that I didn't expect but felt suited my project was the side I left open for 
+	the USBC cable. When the device is plugged in, a bluish light can be seen from within the 
+	black construction paper. It reminds me of the hidden rectangles, and adds to the ambiance of 
+	my controller. 
       </p>
       <iframe width="420" height="315"
       src="https://youtube.com/embed/jtwXn9haXs4">
       </iframe>   
       <h4>The Process</h4>
       <p>
-        text
+        Once I began exploring PyGames, the python library I used to make the display, the 
+	possibilies for the serial inputs were limitless. I knew I wanted something with color 
+	and with motion. I wasn't sure if I wanted a more serious art installation or more of a game,
+	so "Steal the Color" actually had a more serious, artistic origin. The idea was that we, as people 
+	move around blindly. We find ourselves trapped in ways we cannot explain, and the only way
+	to escape is to try something different-- like changing color. As I implemented this, I found myself
+	having fun trying to find the rectangle that traps the circle. I ran with that lighthearted feeling,
+	and ended up with a more playful project.
       </p>  
       <p>
-        challenges
+        One difficulty in coding this project was how to maintain the state of "stuck", as the code loops
+	repeatedly. Eventually I decided on a global variable called "inside", which, when true, would
+	adjust the position of the circle.
       </p>
       <p>
         To try this yourself, follow the below technical description, or follow this link to my code repository. 
@@ -114,7 +128,8 @@
       <h4>Setting up the Hardware </h4>
       
       <p>This project consists of a breadboard, 7 wires, and three main pieces of hardware: an ESP32, a joystick, 
-	and a button. Plug the pins of the hardware into the breadboard, and connected them further with wires: 
+	and a button. Prepare the wires by stripping a bit of the plastic off each end. Plug the pins of the hardware 
+	into the breadboard, and connected them further with wires: 
 	connect the joystick to the ESP32 with one wire to Ground, one to 3V, and the other three to pins 25, 26, 
 	and 27 for X, Y, and Z motion; connect the button with one wire to Ground, and the other to pin 13 for 
 	digital input. The ESP32 is powered via a USBC cable.
