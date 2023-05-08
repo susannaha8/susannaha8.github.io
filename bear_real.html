@@ -79,47 +79,33 @@
       <hr>
       <br /> 
       <h3>Artistic Documentation</h3>    
-	<p>For our final project, we made interactive designs with our ESP32s, along with a joystick
-		and a button.
-	</p>
-      <h4>The Idea</h4>
-      <p>I made a game called "Steal the Color". Hidden in the display is a rectangle. Inside
-	this rectangle, you can change color. Your goal is to navigate around the display
-	using the joystick, find the invisble rectangle, and click the joystick to change color!
-	For added fun, hold the button to cycle through all the colors (and evade the rectangle altogether.) 
+	<p>For our final project, we made a study bear inspired by Be Real. Millie the BeReal Bear 
+	takes a photo of you while you are in a timed study session, and uploads it to keep you accountable.
+
+
+      <h4>Inspiration</h4>
+      <p>As students, we are familar with how difficult it can be to sit down and get work done. 
+	With our setup of a timer and a bear taking a picture at some point in the study window, we thought that 
+	we could take advantage 
+	of a person's fear of being caught not studying to help motivate them to actually 
+	focus during the session. We were inspired by a spy bear project from a past student
+	to use an ESP32-Cam and a Bear theme.
       </p>
-      <img src="/device.png" alt="image of device with joystick and button" style="height: 300px;"/>
-      <h4>The Enclosure</h4>
-      <p>
-       	The breadboard is encased in cardboard, and decorated with black construction paper. The shape
-	of the joystick and button was awkward, so I cut holes in the cardboard and cut a piece of a pen 
-	to press the button. I added three spots of color to mimic the aesthetic of my display. One feature
-	of the enclosure that I didn't expect but felt suited my project was the side I left open for 
-	the USBC cable. When the device is plugged in, a bluish light can be seen from within the 
-	black construction paper. It reminds me of the hidden rectangles, and adds to the ambiance of 
-	my controller. 
-      </p>
+      <img src="/website.png" alt="image of the homepage" style="height: 300px;"/>
+
       <iframe width="420" height="315"
       src="https://youtube.com/embed/6C3gazSnmc8">
       </iframe>   
-      <h4>The Process</h4>
+      <h4>Challenges</h4>
       <p>
-        Once I began exploring PyGames, the python library I used to make the display, the 
-	possibilies for the serial inputs were limitless. I knew I wanted something with color 
-	and with motion. I wasn't sure if I wanted a more serious art installation or more of a game,
-	so "Steal the Color" actually had a more serious, artistic origin. The idea was that we, as people 
-	move around blindly. We find ourselves trapped in ways we cannot explain, and the only way
-	to escape is to try something different-- like changing color. As I implemented this, I found myself
-	having fun trying to find the rectangle that traps the circle. I ran with that lighthearted feeling,
-	and ended up with a more playful project.
+        The largest challenge was adapting code to make our ESP32 email the photo we took. After trial and 
+	error with the ESP-Mail-Client library, we decided to change our project goal so that the device 
+	will upload a photo, and a separate
+	set of code could send the automatic email. We abandoned our PyGame GUI, but we were satisfied with
+	the HTML webpage that we ended up with-- it worked toward the same goal of ensuring studying accountability.
       </p>  
       <p>
-        One difficulty in coding this project was how to maintain the state of "stuck", as the code loops
-	repeatedly. Eventually I decided on a global variable called "inside", which, when true, would
-	adjust the position of the circle.
-      </p>
-      <p>
-        To try this yourself, follow this link to our code repository. 
+        To try this yourself, follow this link to our code repository and check out our README for technical details. 
       </p>
 
       <h3>Technical Documentaion</h3>
