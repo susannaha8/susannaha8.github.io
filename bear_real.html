@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>BE(A)Real</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    <!--  <a class="navbar-brand" href="#">Logo</a> -->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="active"><a href="projects.html">Projects</a></li>
+      </ul>
+      <!-- <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul> -->
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <!-- <div class="col-sm-2 sidenav">
+        <p>Contact Me<p>
+        <p>email: sma2243@barnard.edu<p>
+    </div>-->
+    <div class="col-sm-8 text-left"> 
+      <br /> 
+      <h1>BE(A)Real</h1>
+      <br /> 
+      <hr>
+      <br /> 
+      <h3>Artistic Documentation</h3>    
+	<p>For our final project, we made interactive designs with our ESP32s, along with a joystick
+		and a button.
+	</p>
+      <h4>The Idea</h4>
+      <p>I made a game called "Steal the Color". Hidden in the display is a rectangle. Inside
+	this rectangle, you can change color. Your goal is to navigate around the display
+	using the joystick, find the invisble rectangle, and click the joystick to change color!
+	For added fun, hold the button to cycle through all the colors (and evade the rectangle altogether.) 
+      </p>
+      <img src="/device.png" alt="image of device with joystick and button" style="height: 300px;"/>
+      <h4>The Enclosure</h4>
+      <p>
+       	The breadboard is encased in cardboard, and decorated with black construction paper. The shape
+	of the joystick and button was awkward, so I cut holes in the cardboard and cut a piece of a pen 
+	to press the button. I added three spots of color to mimic the aesthetic of my display. One feature
+	of the enclosure that I didn't expect but felt suited my project was the side I left open for 
+	the USBC cable. When the device is plugged in, a bluish light can be seen from within the 
+	black construction paper. It reminds me of the hidden rectangles, and adds to the ambiance of 
+	my controller. 
+      </p>
+      <iframe width="420" height="315"
+      src="https://youtube.com/embed/6C3gazSnmc8">
+      </iframe>   
+      <h4>The Process</h4>
+      <p>
+        Once I began exploring PyGames, the python library I used to make the display, the 
+	possibilies for the serial inputs were limitless. I knew I wanted something with color 
+	and with motion. I wasn't sure if I wanted a more serious art installation or more of a game,
+	so "Steal the Color" actually had a more serious, artistic origin. The idea was that we, as people 
+	move around blindly. We find ourselves trapped in ways we cannot explain, and the only way
+	to escape is to try something different-- like changing color. As I implemented this, I found myself
+	having fun trying to find the rectangle that traps the circle. I ran with that lighthearted feeling,
+	and ended up with a more playful project.
+      </p>  
+      <p>
+        One difficulty in coding this project was how to maintain the state of "stuck", as the code loops
+	repeatedly. Eventually I decided on a global variable called "inside", which, when true, would
+	adjust the position of the circle.
+      </p>
+      <p>
+        To try this yourself, follow this link to our code repository. 
+      </p>
+
+      <h3>Technical Documentaion</h3>
+
+      <p>Link to github repository: <a href="https://github.com/susannaha8/B-Real">https://github.com/susannaha8/B-Real</a></p>
+
+      
+      
+    </div>
+  </div>
+</div>
+
+<!-- <footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>  -->
+
+</body>
+</html>
+
